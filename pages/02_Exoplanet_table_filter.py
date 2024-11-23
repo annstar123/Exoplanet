@@ -34,7 +34,6 @@ def get_exoplanet_table_by_astroquery():
 
     return exoplanet_table
 # 主邏輯: 獲取資料並顯示於界面
-# 主邏輯: 獲取資料並顯示於界面
 try:
     # 獲取完整的資料表
     exoplanet_table = get_exoplanet_table_by_astroquery()
@@ -86,21 +85,6 @@ try:
 
 except Exception as e:
     st.error(f"資料獲取失敗: {e}")
-
-# 使用 AgGrid 顯示資料表
-gb = GridOptionsBuilder.from_dataframe(exoplanet_table)
-gb.configure_column('行星名稱', pinned='left')
-for col in exoplanet_table.columns.values.tolist():
-    gb.configure_column(col, suppressMovable=True, suppressMenu=True)
-
-gridOptions = gb.build()
-AgGrid(
-    exoplanet_table,
-    gridOptions=gridOptions,
-    allow_unsafe_jscode=True,
-    height=400,
-    theme='balham'
-)
 
 # 匯出資料功能
 st.sidebar.download_button(
