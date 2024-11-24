@@ -1,7 +1,6 @@
 # exoplanet_table_filter.py
 import streamlit as st
 from astroquery.ipac.nexsci.nasa_exoplanet_archive import NasaExoplanetArchive
-from st_aggrid import AgGrid, GridOptionsBuilder, JsCode
 
 page_title = '系外行星資料表篩選器'
 st.title(page_title)
